@@ -126,4 +126,3 @@ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
    - ECR_REPO
 
     
-get started
