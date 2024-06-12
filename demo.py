@@ -103,20 +103,20 @@
 # # Ensure to call this function before the code that requires AWS credentials
 # check_aws_credentials()
 
-from dotenv import load_dotenv
-import os
+# from dotenv import load_dotenv
+# import os
 
-load_dotenv()
+# load_dotenv()
 
-def check_aws_credentials():
-    access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
-    secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
+# def check_aws_credentials():
+#     access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
+#     secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
 
-    if not access_key_id or not secret_access_key:
-        raise EnvironmentError("AWS credentials are not set properly.")
+#     if not access_key_id or not secret_access_key:
+#         raise EnvironmentError("AWS credentials are not set properly.")
     
-    print(f"AWS_ACCESS_KEY_ID: {access_key_id}")
-    print(f"AWS_SECRET_ACCESS_KEY: {secret_access_key}")
+#     print(f"AWS_ACCESS_KEY_ID: {access_key_id}")
+#     print(f"AWS_SECRET_ACCESS_KEY: {secret_access_key}")
 
-# Ensure to call this function before the code that requires AWS credentials
-check_aws_credentials()
+# # Ensure to call this function before the code that requires AWS credentials
+# check_aws_credentials()
