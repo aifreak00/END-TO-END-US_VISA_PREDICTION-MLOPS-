@@ -19,6 +19,7 @@ class DataIngestion:
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
             raise USvisaException(e,sys)
+        
 
     def export_data_into_feature_store(self)->DataFrame:
         """

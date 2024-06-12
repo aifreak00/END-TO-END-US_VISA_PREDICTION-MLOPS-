@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="us_visa",
-    version="0.0.0",
+    version="0.0.1",
     author="aifreak00",
     author_email="prathameshettam2001@gmail.com",
     packages=find_packages()

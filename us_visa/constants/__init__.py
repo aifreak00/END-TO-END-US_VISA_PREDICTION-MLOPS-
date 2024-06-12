@@ -37,14 +37,12 @@ DATA_INGESTION_INGESTED_DIR: str = "ingested"
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.2
 
 
-
 """
 Data Validation realted contant start with DATA_VALIDATION VAR NAME
 """
 DATA_VALIDATION_DIR_NAME: str = "data_validation"
 DATA_VALIDATION_DRIFT_REPORT_DIR: str = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME: str = "report.yaml"
-
 
 
 """
@@ -66,9 +64,11 @@ MODEL_TRAINER_MODEL_CONFIG_FILE_PATH: str = os.path.join("config", "model.yaml")
 
 
 MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
-MODEL_BUCKET_NAME = "usvisapred"
+MODEL_BUCKET_NAME = "mlopsusvisa"
 MODEL_PUSHER_S3_KEY = "model-registry"
 
 
 APP_HOST = "0.0.0.0"
-APP_PORT = 8000
+APP_PORT = 8080
+
+

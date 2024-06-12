@@ -7,7 +7,6 @@ class DataIngestionArtifact:
     test_file_path:str 
 
 
-
 @dataclass
 class DataValidationArtifact:
     validation_status:bool
@@ -50,11 +49,3 @@ class ModelEvaluationArtifact:
 class ModelPusherArtifact:
     bucket_name:str
     s3_model_path:str
-
-
-
-
-
-
-
- 

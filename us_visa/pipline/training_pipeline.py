@@ -9,6 +9,7 @@ from us_visa.components.model_trainer import ModelTrainer
 from us_visa.components.model_evaluation import ModelEvaluation
 from us_visa.components.model_pusher import ModelPusher
 
+
 from us_visa.entity.config_entity import (DataIngestionConfig,
                                           DataValidationConfig,
                                           DataTransformationConfig,
@@ -54,7 +55,6 @@ class TrainPipeline:
         except Exception as e:
             raise USvisaException(e, sys) from e
         
-    
 
     def start_data_validation(self, data_ingestion_artifact: DataIngestionArtifact) -> DataValidationArtifact:
         """
@@ -81,9 +81,6 @@ class TrainPipeline:
             raise USvisaException(e, sys) from e
         
 
-
-    
-
     def start_data_transformation(self, data_ingestion_artifact: DataIngestionArtifact, data_validation_artifact: DataValidationArtifact) -> DataTransformationArtifact:
         """
         This method of TrainPipeline class is responsible for starting data transformation component
@@ -98,7 +95,6 @@ class TrainPipeline:
             raise USvisaException(e, sys)
         
 
-    
     def start_model_trainer(self, data_transformation_artifact: DataTransformationArtifact) -> ModelTrainerArtifact:
         """
         This method of TrainPipeline class is responsible for starting model training
@@ -113,7 +109,6 @@ class TrainPipeline:
         except Exception as e:
             raise USvisaException(e, sys)
         
-    
 
     def start_model_evaluation(self, data_ingestion_artifact: DataIngestionArtifact,
                                model_trainer_artifact: ModelTrainerArtifact) -> ModelEvaluationArtifact:
@@ -130,8 +125,6 @@ class TrainPipeline:
             raise USvisaException(e, sys)
         
 
-    
-
     def start_model_pusher(self, model_evaluation_artifact: ModelEvaluationArtifact) -> ModelPusherArtifact:
         """
         This method of TrainPipeline class is responsible for starting model pushing
@@ -145,13 +138,7 @@ class TrainPipeline:
         except Exception as e:
             raise USvisaException(e, sys)
 
-        
 
-    
-
-        
-
-    
     def run_pipeline(self, ) -> None:
         """
         This method of TrainPipeline class is responsible for running complete pipeline
@@ -169,8 +156,6 @@ class TrainPipeline:
                 logging.info(f"Model not accepted.")
                 return None
             model_pusher_artifact = self.start_model_pusher(model_evaluation_artifact=model_evaluation_artifact)
-
-
-        
+            
         except Exception as e:
             raise USvisaException(e, sys)

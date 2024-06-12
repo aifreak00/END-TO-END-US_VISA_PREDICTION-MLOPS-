@@ -8,7 +8,7 @@ from us_visa.constants import DATABASE_NAME, MONGODB_URL_KEY
 import pymongo
 import certifi
 
-ca = certifi.where()
+ca = certifi.where() #This is to avoid timeout error
 
 class MongoDBClient:
     """

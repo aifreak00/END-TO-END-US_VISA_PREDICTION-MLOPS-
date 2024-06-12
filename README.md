@@ -1,128 +1,65 @@
-# US-Visa-Approval-Prediction
+# Visa Prediction Project with MLOps Implementation
 
-## Live matarials docs
+Welcome to the Visa Prediction Project! This project combines the power of Data Science with MLOps (Machine Learning Operations) to automate the process of visa application approval or rejection prediction. By leveraging MLOps practices, we ensure efficient model development, deployment, and monitoring, resulting in a robust and scalable solution.
 
-[link](https://docs.google.com/document/d/1UFiHnyKRqgx8Lodsvdzu58LbVjdWHNf-uab2WmhE0A4/edit?usp=sharing)
+## Overview
 
+The Visa Prediction Project employs state-of-the-art machine learning algorithms to predict the approval or rejection of visa applications. This project is not just about building models; it's about implementing end-to-end MLOps pipelines to streamline the entire lifecycle of model development, deployment, and maintenance.
 
-## Git commands
+## Project Structure
 
-```bash
-git add .
+The project is organized into several components, each serving a specific MLOps purpose:
 
-git commit -m "Updated"
+- **Setup**: Scripts and instructions for setting up the project environment, including creating a virtual environment, installing dependencies, and configuring MongoDB Atlas for data storage.
 
-git push origin main
-```
+- **Data Ingestion**: Components for fetching, loading, and storing visa application data from external sources (such as Kaggle) into MongoDB Atlas for further processing.
 
-## How to run?
+- **EDA and Feature Engineering**: Notebooks for exploratory data analysis and feature engineering to extract meaningful insights and prepare the data for modeling.
 
-```bash
-conda create -n visa python=3.8 -y
-```
+- **Data Validation**: Components for validating the integrity and quality of the data to ensure that only clean and reliable data is used for training the models.
 
-```bash
-conda activate visa
-```
+- **Data Transformation**: Scripts and components for transforming the raw data into a format suitable for model training, including preprocessing and normalization steps.
 
-```bash
-pip install -r requirements.txt
-```
+- **Model Training**: Components for training machine learning models on the processed data, including hyperparameter tuning, cross-validation, and model evaluation.
 
-```bash
-python app.py
-```
+- **Model Evaluation**: Components for evaluating the performance of trained models using various metrics and selecting the best-performing model for deployment.
 
+- **Model Deployment**: Scripts, Dockerfiles, and instructions for deploying the selected model as a scalable and reliable service, including setting up AWS services for hosting the model.
 
-## Workflow
+- **CI/CD Pipeline**: Configuration files and workflows for implementing a continuous integration and continuous deployment (CI/CD) pipeline, enabling automated testing, building, and deployment of models with every code change.
 
-1. constant
-2. config_entity
-3. artifact_entity
-4. conponent
-5. pipeline
-6. app.py / demo.py
+## MLOps Implementation Highlights
 
+This project showcases best practices in MLOps implementation, including:
 
-### Export the  environment variable
-```bash
+- **Dockerization**: Containerizing the model training and deployment processes using Docker to ensure consistency and reproducibility across different environments.
 
+- **CI/CD Pipeline**: Setting up a robust CI/CD pipeline with GitHub Actions to automate testing, building Docker images, and deploying models to production environments.
 
-export MONGODB_URL="mongodb+srv://<username>:<password>...."
+- **Model Pusher**: Implementing a model pusher component to automatically push trained models to an AWS S3 bucket for versioning and storage.
 
-export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
+- **AWS Integration**: Leveraging AWS services such as EC2, S3, and ECR for model hosting, storage, and infrastructure management, ensuring scalability and reliability of the deployed solution.
 
-export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
-```
+## Usage
 
+To get started with the project and experience the power of MLOps in action, follow these steps:
 
+1. Set up your project environment by creating a virtual environment and installing dependencies from the `requirements.txt` file.
 
-# AWS-CICD-Deployment-with-Github-Actions
+2. Sign up for MongoDB Atlas and create a new project for storing the project data.
 
-## 1. Login to AWS console.
+3. Fetch the visa application data from the provided Kaggle link and push it to MongoDB Atlas using the provided scripts.
 
-## 2. Create IAM user for deployment
+4. Explore the data using the EDA notebooks and perform feature engineering to prepare the data for modeling.
 
-	#with specific access
+5. Train machine learning models using the provided scripts and components, and evaluate their performance using appropriate metrics.
 
-	1. EC2 access : It is virtual machine
+6. Deploy the best-performing model for real-time predictions using Docker and AWS services.
 
-	2. ECR: Elastic Container registry to save your docker image in aws
+## Contributing
 
+Contributions to the project are welcome! If you have any suggestions, bug reports, or feature requests related to MLOps practices, feel free to open an issue or submit a pull request.
 
-	#Description: About the deployment
+## License
 
-	1. Build docker image of the source code
-
-	2. Push your docker image to ECR
-
-	3. Launch Your EC2 
-
-	4. Pull Your image from ECR in EC2
-
-	5. Lauch your docker image in EC2
-
-	#Policy:
-
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
-
-	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI: 136566696263.dkr.ecr.us-east-1.amazonaws.com/mlproject
-
-	
-## 4. Create EC2 machine (Ubuntu) 
-
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
-
-	sudo apt-get update -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-   - AWS_ACCESS_KEY_ID
-   - AWS_SECRET_ACCESS_KEY
-   - AWS_DEFAULT_REGION
-   - ECR_REPO
-
-    
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
